@@ -47,9 +47,9 @@ imgEle.setProxySrc(src);
 ```
 案例运行实例：
 
-步骤一：网上找了一个豆瓣的api（[http://127.0.0.1:8070/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a](https://note.youdao.com/)）从中提取图片地址。
+步骤一：网上找了一个豆瓣的api（[http://127.0.0.1:8070/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4](http://127.0.0.1:8070/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a)）从中提取图片地址。
 
-步骤二：解决接口跨域问题（node代理）。不用担心在已经帮你配好了，直接运行即可：
+步骤二：解决接口跨域问题（node代理，若有可控接口，可忽略）。不用担心，已经帮你配好了，代码在node-proxy文件夹下，直接运行即可：
 ```
 //加载依赖包
 npm install
