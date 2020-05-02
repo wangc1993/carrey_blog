@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>高度拖动-onmousemove方式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+        }
+        .fix {
+            position: fixed;
+            width: 64px;
+            height: 5px;
+            top: -10px;
+            background: blue;
+            z-index: 1000;
+        }
+
+        .box {
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            width: 32px;
+        }
+
+        .top {
+            height: calc(30% - 10px);
+            width: 100%;
+            background: skyblue;
+        }
+
+        .resize {
+            height: 5px;
+            width: 100%;
+            cursor: n-resize;
+        }
+
+        .resize2 {
+            height: 5px;
+            width: 100%;
+            cursor: n-resize;
+        }
+
+        .bottom {
+            height: 35%;
+            width: 100%;
+            background: tomato;
+        }
+
+        .mid {
+            height: 35%;
+            width: 100%;
+            background: #f00;
+        }
+    </style>
+</head>
+<script src="./index.js"></script>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="top">上边</div>
+            <div class="resize"></div>
+            <div class="mid">中间</div>
+            <div class="resize2"></div>
+            <div class="bottom">下边</div>
+        </div>
+        <div class="box">
+            <div class="top">上边</div>
+            <div class="resize"></div>
+            <div class="mid">中间</div>
+            <div class="resize2"></div>
+            <div class="bottom">下边</div>
+        </div>
+    </div>
+    <div class="fix"></div>
+</body>
+
+</html>
