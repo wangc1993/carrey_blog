@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>son1</title>
+</head>
+
+<body>
+    <h2>son1</h2>
+    <span id="message"></span>
+    <script>
+        function receiveMessage(event) {
+            document.getElementById('message').innerHTML = "收到father的的消息了：" + event.data.message
+            console.log('son1', event, event.data)
+            sendMessage()
+        }
+        function sendMessage() {
+            const message = {
+                message: '我是son1',
+                userName: 'son1'
+            }
+            const targetOrigin = '*'
+            window.parent.postMessage(message, targetOrigin)
+        }
+        // 监听
+        window.addEventListener(
+            'message',
+            receiveMessage,
+            false
+        )
+    </script>
+</body>
+
+</html>

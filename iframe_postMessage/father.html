@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>father</title>
+    <script>
+        function onChangeIframe() {
+            const iframe = document.querySelector('#ifr')
+            
+            if(iframe.src.indexOf('/son1.html') !== -1 ) {
+                iframe.src = './son2.html'
+            } else {
+                iframe.src = './son1.html'
+            }
+            setTimeout(function() {
+                sendMessage()
+            }, 100)
+        }
+        function sendMessage() {
+            const iframe = document.querySelector('#ifr')
+            const message = {
+                message: '我是father',
+                userName: 'father'
+            }
+            const targetOrigin = '*'
+            iframe.contentWindow.postMessage(message, targetOrigin)
+        }
+        function receiveMessage(event) {
+            document.getElementById('message').innerHTML = "收到" + event.data.userName + "的的消息了：" + event.data.message
+            console.log('father', event, event.data)
+        }
+        window.onload = function () {
+            sendMessage()
+        }
+        // 监听
+        window.addEventListener(
+            'message',
+            receiveMessage,
+            false
+        )
+    </script>
+</head>
+
+<body>
+    <span id="message"></span>
+    <button onclick="onChangeIframe()">切换iframe</button>
+    <iframe id="ifr" src="./son1.html" frameborder="0"></iframe>
+</body>
+
+</html>
