@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>每3秒更新一次当前网络状态</div>
+    <div>当前网络状态：</div>
+    <div id="log"></div>
+    <script>
+      window.addEventListener("load", function () {
+        let i = 1;
+        let log = document.getElementById("log");
+        let connectionInfo =
+          navigator.connection ||
+          navigator.mozConnection ||
+          navigator.webkitConnection;
+
+        function updateOnlineStatus() {
+          if (i > 20) {
+            clearInterval(timer);
+            return;
+          }
+          log.insertAdjacentHTML(
+            "beforeend",
+            `<div>${i}、当前网络状态：${connectionInfo.effectiveType}，当前带宽：${connectionInfo.downlink};<div>`
+          );
+          i++;
+        }
+        updateOnlineStatus();
+        //增加断网/联网的事件监听
+        window.addEventListener("online", updateOnlineStatus);
+        window.addEventListener("offline", updateOnlineStatus);
+        //每5秒获取一次网络信息
+        let timer = setInterval(() => {
+          updateOnlineStatus();
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>
