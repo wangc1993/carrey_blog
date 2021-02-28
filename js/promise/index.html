@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./promise.js"></script>
+  </head>
+  <body>
+    <script>
+      // const p = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     // resolve(1)
+      //     reject(111)
+      //   }, 100);
+      // }).then(
+      //   (value) => {
+      //     console.log("onResolved 1:", value);
+      //   },
+      //   (reason) => {
+      //     console.log("onRejected 1:", reason);
+      //     return new Promise((resolve,reject) => {reject(3)})
+      //   }
+      // ).then(
+      //   (value) => {
+      //     console.log("onResolved 2:", value);
+      //   },
+      //   (reason) => {
+      //     console.log("onRejected 2:", reason);
+      //     return new Promise((resolve,reject) => {reject(4)})
+      //   }
+      // ).catch(err => {
+      //   console.log("onRejected 3:", err)
+      //   //断开promise链
+      //   return new Promise(() => {})
+      // }).then(
+      //   (value) => {
+      //     console.log("onResolved 4:", value);
+      //   },
+      //   (reason) => {
+      //     console.log("onRejected 4:", reason);
+      //   }
+      // );
+
+      const p1 = Promise.resolve(1);
+      const p2 = Promise.resolve(Promise.resolve(2));
+      const p3 = Promise.reject(333);
+      // const p4 = new Promise(resolve => {
+      //   setTimeout(() => {
+      //     resolve(4)
+      //   }, 3000);
+      // })
+      const p4 = Promise.resolveDelay(4, 1000);
+      const p5 = Promise.rejectDelay(5, 2000);
+
+      // p1.then(value => console.log('p1', value))
+      // p2.then(value => console.log('p2', value))
+      // p3.catch(value => console.log('p3', value))
+
+      // Promise.all([p4, p1, p2]).then(
+      //   (value) => {
+      //     console.log('resolve:', value)
+      //   },
+      //   (reason) => {
+      //     console.log("reject:", reason);
+      //   }
+      // );
+
+      p4.then((value) => {
+        console.log("resolve: ", value);
+      });
+      p5.catch((reason) => {
+        console.log("reject: ", reason);
+      });
+    </script>
+  </body>
+</html>

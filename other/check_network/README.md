@@ -27,7 +27,7 @@ online 状态下控制台打印 console.log(navigator.connection)：
 
 具体每个字段的意义不多做解释，草案里都有；
 
-#### 三、结合一和二，我简单实现一个实时监听网络情况的案例
+#### 三、结合一和二，简单实现一个实时监听网络情况的[案例](https://github.com/wangc1993/carrey_blog/blob/master/other/check_network/index.html)
 
 主要代码：
 
