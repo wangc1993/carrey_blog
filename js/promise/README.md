@@ -150,4 +150,4 @@ Promise.prototype.catch = function (onRejected) {
   return this.then(null, onRejected);
 };
 ```
-6. 拓展：还有promise.all、promise.race等常用方法，具体可见[案例](https://github.com/wangc1993/carrey_blog/tree/master/js/promise/index.js)
+6. 拓展：还有promise.all、promise.race等常用方法，具体可见[案例](https://github.com/wangc1993/carrey_blog/tree/master/js/promise/promise.js)
